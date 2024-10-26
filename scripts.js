@@ -17,4 +17,12 @@ form.addEventListener("submit", (event) => {
   }
 
 //checks if inputs are numbers 
+if (isNaN(dividend) || isNaN(divider)) {
+  throw new Error('Non-numeric input provided');
+}
+//inputs to numbers 
+const numDividend = parseFloat(dividend);
+const numDivider = parseFloat(divider);
+
+//checks for division by zero
 });
