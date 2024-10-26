@@ -6,4 +6,15 @@ form.addEventListener("submit", (event) => {
   const entries = new FormData(event.target);
   const { dividend, divider } = Object.fromEntries(entries);
   result.innerText = dividend / divider;
+
+ // catch block to handle any errors
+ try {
+  // Checks for missing inputs 
+  if (!dividend || !divider) {
+    result.innerText = "Division not performed. Both values are required in inputs. Try again";
+    result.style.color = "red"; // Change color to red for error
+    return;
+  }
+
+//checks if inputs are numbers 
 });
