@@ -25,4 +25,11 @@ const numDividend = parseFloat(dividend);
 const numDivider = parseFloat(divider);
 
 //checks for division by zero
+if (numDivider === 0) {
+  throw new Error('Division by zero is not allowed');
+  }
+  // perform division
+  const quotient = Math.floor (numDividend / numDivider);
+  result.innerText = `Result: ${quotient}`;
+ } catch  (error) {
 });
