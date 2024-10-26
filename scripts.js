@@ -7,6 +7,9 @@ form.addEventListener("submit", (event) => {
   const { dividend, divider } = Object.fromEntries(entries);
   result.innerText = dividend / divider;
 
+  //resets the color 
+  result.style.color = "#000";
+
  // catch block to handle any errors
  try {
   // Checks for missing inputs 
