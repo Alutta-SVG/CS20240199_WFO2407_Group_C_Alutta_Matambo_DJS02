@@ -32,4 +32,17 @@ if (numDivider === 0) {
   const quotient = Math.floor (numDividend / numDivider);
   result.innerText = `Result: ${quotient}`;
  } catch  (error) {
+
+  //error messages
+  if (error.message === 'Non-numeric input provided') {
+    console.error(error);
+    document.body.innerHTML = '<h1 style="color: red;"> Something critical went wrong. Please reload the page.</h1>';
+  }else if (error.message ==='Division by zero is not allowed') {
+    console,error(error);
+    result.innerText = "Division not performed. Invalid number provided. Try again";
+    result.style.color = "red";
+    } else {
+      throw error;  // rethrow the error
+  }
+  }
 });
