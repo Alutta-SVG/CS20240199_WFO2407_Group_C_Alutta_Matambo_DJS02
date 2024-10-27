@@ -24,12 +24,13 @@ const vel2 = calcNewVel ({acc, vel, time}) => {
   //ensures valid inputs and values 
   if (typeof vel !== 'number' ||  typeof acc !== 'number' || typeof time !== 'number') {
     throw new Error('Invalid input type')
-    }
+    };
+
   return vel + (acc * (time / 3600));
 } //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
+const vel2 = calcNewVel ({ velocity:vel, acceleration: accInKmPerHourSquared, time});
   return vel + (acc*time)
 }
 
