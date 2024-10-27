@@ -16,28 +16,28 @@ const fbr = 0.5; // fuel burn rate (kg/s)
 // acceleration conversion 
 const accInKmPerHourSquared = acc * 12.96;
 
-const d2 = d + (vel * (time / 3600)) //calcultes new distance
-
+const d2 = d + (vel * (time / 3600)) //calculates new distance
 
 const rf = Math.max(fuel- (fbr * time), 0)//calculates remaining fuel
 
-
-const calcNewVel = ({ vel, acc, time }) => {
-  //ensures valid inputs and values 
-  if (typeof vel !== 'number' || typeof acc !== 'number' || typeof time !== 'number') {
+//calculates new velocity based on acceleration
+const calcNewVel = ({ velocity, acceleration, time }) => {
+  
+  //ensures valid inputs 
+  if (typeof velocity !== 'number' || typeof acceleration !== 'number' || typeof time !== 'number') {
     throw new Error('Invalid input values.');
   };
 
-  return vel + (acc * (time / 3600));
-} //calculates new velocity based on acceleration
+  // Converts time to hours for velocity calculation
+  return velocity + (acceleration * (time / 3600));
+}; 
 
 // Pick up an error with how the function below is called and make it robust to such errors
 const vel2 = calcNewVel({ velocity: vel, acceleration: accInKmPerHourSquared, time });
 
-console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
-console.log(`Corrected Remaining Fuel: ${rf} kg`);
-
+console.log(`Corrected New Velocity: ${vel2.toFixed(2)} km/h`);
+console.log(`Corrected New Distance: ${d2.toFixed(2)} km`);
+console.log(`Corrected Remaining Fuel: ${rf.toFixed(2)} kg`);
 
 
 
